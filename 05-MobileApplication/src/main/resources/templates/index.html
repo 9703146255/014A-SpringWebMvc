@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bootstrap demo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+	<div class="container">
+		<h1>Book_Info</h1>
+		<a th:href="@{addmobile}" class="btn btn-primary">add books</a>
+
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>MOBILE ID</th>
+					<th>MOBILE NAME</th>
+					<th>MOBILE PRICE</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+
+
+			<tbody>
+				<tr th:each="mobile  : ${mobiles}">
+					<td th:text="${mobile.mobileId}"></td>
+					<td th:text="${mobile.mobileName}"></td>
+					<td th:text="${mobile.mobilePrice}"></td>
+					<td>
+						<a th:href="@{/edit?(mobileId=${mobile.mobileId})}" class="btn btn-secondary">edit</a>
+						<a th:href="@{/delete?(mobileId=${mobile.mobileId})}" class="btn btn-danger"    onclick="return confirm('are you sure, want to delete')">delete</a>
+					</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+NO OF WAYS TO REDIRECT THE PAGE
+===============================
+
+
+01]Using ModelAndView:
+------------------
+			ModelAndView mav = new ModelAndView("redirect:/products");
+			return mav;
+
+
+02]Using RedirectView:
+-------------------
+			RedirectView redirectView = new RedirectView("/products");
+			ModelAndView mav = new ModelAndView(redirectView);
+			return mav;
+
+
+03]Using RedirectAttributes (for Redirect with Flash Attributes):
+--------------------------------------------------------------
+			RedirectAttributes attributes = new RedirectAttributesModelMap();
+			attributes.addAttribute("attributeName", attributeValue);
+			return "redirect:/products";
+
+
+T			his is useful when you want to pass flash attributes to the redirected view.
+
+
+
+04]Using Redirect String (Without ModelAndView):
+-------------------------------------------
+			return "redirect:/products";
+			
+			
+			
+			
+			
+			DELETE URL
+			=========
+			<a th:href="@{/delete?productId=${product.productId}}" class="btn btn-danger">delete</a>
+			<a th:href="@{'/delete?productId=' + ${product.productId}}" class="btn btn-danger">delete</a>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
